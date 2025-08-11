@@ -1,0 +1,186 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+h2 {
+  margin-top: 0;
+  color: #34495e;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+input[type="text"] {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 220px;
+  font-size: 0.95rem;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: border 0.2s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.15s ease;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f9fafc;
+  border: 1px solid #e1e5ea;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+li strong {
+  color: #2c3e50;
+}
+
+li button {
+  margin-left: 8px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+li button:hover {
+  background: #2980b9;
+  transform: scale(1.1);
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+#study-section {
+  text-align: center;
+}
+
+#studyWord {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 20px 0 15px;
+  color: #2c3e50;
+}
+
+#studyAnswer {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 280px;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+#studyAnswer:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+#studyResult {
+  font-weight: 700;
+  margin-top: 12px;
+  height: 24px;
+  color: #27ae60;
+  transition: opacity 0.4s ease;
+}
+
+#studyResult.incorrect {
+  color: #c0392b;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  input[type="text"], button {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  li button {
+    margin-left: 0;
+  }
+}
+
+/* Fade animation for showing sections */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Optional fade out if you want to add in JS */
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(8px); }
+}

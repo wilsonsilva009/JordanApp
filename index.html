@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deck Study App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Deck Study App</h1>
+
+  <div class="container">
+    <div id="deck-section" class="section">
+      <h2>Decks</h2>
+      <input type="text" id="newDeckName" placeholder="Deck name">
+      <button id="addDeckBtn">Add Deck</button>
+      <ul id="deckList"></ul>
+    </div>
+
+    <div id="word-section" class="section" style="display:none;">
+      <h2 id="selectedDeckName"></h2>
+      <button id="backToDecksBtn" style="margin-bottom: 15px; background:#95a5a6;">← Back to Decks</button>
+      <input type="text" id="newWord" placeholder="Word">
+      <input type="text" id="newDefinition" placeholder="Definition">
+      <div class="action-buttons">
+        <button id="addWordBtn">Add Word</button>
+        <button id="clearWordsBtn">Clear Words</button>
+        <button id="deleteDeckBtn">Delete Deck</button>
+      </div>
+      <ul id="wordList"></ul>
+      <button id="studyBtn">Study</button>
+    </div>
+
+    <div id="study-section" class="section" style="display:none;">
+      <h2>Study Mode</h2>
+      <p id="studyWord"></p>
+      <input type="text" id="studyAnswer" placeholder="Definition">
+      <br>
+      <button id="checkAnswerBtn">Check</button>
+      <p id="studyResult"></p>
+      <button id="exitStudyBtn">Exit Study</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
