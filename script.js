@@ -11,13 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const studyResult = document.getElementById("studyResult");
   const studyAnswerInput = document.getElementById("studyAnswer");
 
-  // Give special classes to make them distinct
-  document.getElementById("addDeckBtn").classList.add("success");
-  document.getElementById("addWordBtn").classList.add("success");
-  document.getElementById("clearWordsBtn").classList.add("warning");
-  document.getElementById("deleteDeckBtn").classList.add("danger");
-  document.getElementById("backToDecksBtn").classList.add("secondary");
-
   backToDecksBtn.addEventListener("click", () => {
     selectedDeck = null;
     studyResult.textContent = "";
@@ -73,13 +66,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
       li.innerHTML = `
         ${deckName}
-        <button class="selectDeck">Select</button>
-        <button class="deleteDeck danger">Delete</button>
+        <button class="selectDeck" data-deck="${deckName}">Select</button>
+        <button class="editDeck" data-deck="${deckName}">Edit</button>
+        <button class="deleteDeck" data-deck="${deckName}">Delete</button>
       `;
       deckList.appendChild(li);
     }
   }
-  
+
   function renderWords() {
     wordList.innerHTML = "";
     if (!selectedDeck) return;
@@ -87,8 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
       li.innerHTML = `
         <strong>${word}</strong>: ${definition}
-        <button class="editWord">Edit</button>
-        <button class="deleteWord danger">Delete</button>
+        <button class="editWord" data-word="${word}">Edit</button>
+        <button class="deleteWord" data-word="${word}">Delete</button>
       `;
       wordList.appendChild(li);
     }
@@ -109,6 +103,16 @@ document.addEventListener("DOMContentLoaded", () => {
       delete decks[deckName];
       saveDecks();
       renderDecks();
+    }
+    if (e.target.classList.contains("editDeck")) {
+      const deckName = e.target.dataset.deck;
+      const newName = prompt("Edit deck name:", deckName);
+      if (newName && !decks[newName]) {
+        decks[newName] = decks[deckName];
+        delete decks[deckName];
+        saveDecks();
+        renderDecks();
+      }
     }
   });
 
@@ -207,5 +211,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderDecks();
 });
-
-

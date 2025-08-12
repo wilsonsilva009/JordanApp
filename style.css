@@ -1,3 +1,11 @@
+:root {
+  --primary: #3498db;
+  --danger: #e74c3c;
+  --warning: #e67e22;
+  --success: #2ecc71;
+  --default: #95a5a6;   
+}
+
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
@@ -41,7 +49,7 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border-color: #3498db;
+  border-color: var(--primary);
   outline: none;
 }
 
@@ -50,7 +58,7 @@ button {
   border: none;
   border-radius: 6px;
   font-size: 0.95rem;
-  background: #3498db;
+  background: var(--primary);
   color: white;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.15s ease;
@@ -99,6 +107,10 @@ li button:hover {
   margin-bottom: 30px;
 }
 
+#backToDecksBtn {
+  margin: 10px 0;
+}
+
 #study-section {
   text-align: center;
 }
@@ -138,47 +150,27 @@ li button:hover {
   color: #c0392b;
 }
 
+#deleteDeckBtn, .deleteDeck, .deleteWord {
+  background-color: var(--danger)
+}
+
+#deleteDeckBtn:hover, .deleteDeck:hover, .deleteWord:hover {
+  background-color: #c0392b;
+}
+
+#clearWordsBtn {
+  background-color: var(--warning)
+}
+
+#addWordBtn {
+  background-color: var(--success);
+}
+
 .action-buttons {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 15px;
-}
-
-/* Add button (green) */
-#addDeckBtn,
-#addWordBtn {
-  background: #27ae60;
-}
-#addDeckBtn:hover,
-#addWordBtn:hover {
-  background: #1e8449;
-}
-
-/* Delete buttons (red) */
-#deleteDeckBtn,
-li button.delete {
-  background: #e74c3c;
-}
-#deleteDeckBtn:hover,
-li button.delete:hover {
-  background: #c0392b;
-}
-
-/* Clear button (orange) */
-#clearWordsBtn {
-  background: #e67e22;
-}
-#clearWordsBtn:hover {
-  background: #ca6f1e;
-}
-
-/* Back to Decks (gray — already set inline, but CSS makes it consistent) */
-#backToDecksBtn {
-  background: #7f8c8d;
-}
-#backToDecksBtn:hover {
-  background: #606b6d;
 }
 
 /* Responsive styling */
@@ -220,4 +212,3 @@ li button.delete:hover {
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(8px); }
 }
-
