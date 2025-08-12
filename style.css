@@ -145,6 +145,42 @@ li button:hover {
   margin-bottom: 15px;
 }
 
+/* Add button (green) */
+#addDeckBtn,
+#addWordBtn {
+  background: #27ae60;
+}
+#addDeckBtn:hover,
+#addWordBtn:hover {
+  background: #1e8449;
+}
+
+/* Delete buttons (red) */
+#deleteDeckBtn,
+li button.delete {
+  background: #e74c3c;
+}
+#deleteDeckBtn:hover,
+li button.delete:hover {
+  background: #c0392b;
+}
+
+/* Clear button (orange) */
+#clearWordsBtn {
+  background: #e67e22;
+}
+#clearWordsBtn:hover {
+  background: #ca6f1e;
+}
+
+/* Back to Decks (gray — already set inline, but CSS makes it consistent) */
+#backToDecksBtn {
+  background: #7f8c8d;
+}
+#backToDecksBtn:hover {
+  background: #606b6d;
+}
+
 /* Responsive styling */
 @media (max-width: 600px) {
   .container {
@@ -184,3 +220,4 @@ li button:hover {
   from { opacity: 1; transform: translateY(0); }
   to { opacity: 0; transform: translateY(8px); }
 }
+
