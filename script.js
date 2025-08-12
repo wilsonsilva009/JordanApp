@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const studyResult = document.getElementById("studyResult");
   const studyAnswerInput = document.getElementById("studyAnswer");
 
+  // Give special classes to make them distinct
+  document.getElementById("addDeckBtn").classList.add("success");
+  document.getElementById("addWordBtn").classList.add("success");
+  document.getElementById("clearWordsBtn").classList.add("warning");
+  document.getElementById("deleteDeckBtn").classList.add("danger");
+  document.getElementById("backToDecksBtn").classList.add("secondary");
+
   backToDecksBtn.addEventListener("click", () => {
     selectedDeck = null;
     studyResult.textContent = "";
@@ -200,4 +207,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderDecks();
 });
+
 
