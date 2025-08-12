@@ -66,13 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
       li.innerHTML = `
         ${deckName}
-        <button class="selectDeck" data-deck="${deckName}">Select</button>
-        <button class="deleteDeck" data-deck="${deckName}">Delete</button>
+        <button class="selectDeck">Select</button>
+        <button class="deleteDeck danger">Delete</button>
       `;
       deckList.appendChild(li);
     }
   }
-
+  
   function renderWords() {
     wordList.innerHTML = "";
     if (!selectedDeck) return;
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
       li.innerHTML = `
         <strong>${word}</strong>: ${definition}
-        <button class="editWord" data-word="${word}">Edit</button>
-        <button class="deleteWord" data-word="${word}">Delete</button>
+        <button class="editWord">Edit</button>
+        <button class="deleteWord danger">Delete</button>
       `;
       wordList.appendChild(li);
     }
@@ -200,3 +200,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderDecks();
 });
+
