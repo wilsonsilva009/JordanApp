@@ -4,8 +4,10 @@
   <script>
     (function(p,u,s,h,x){p.pushpad=p.pushpad||function(){(p.pushpad.q=p.pushpad.q||[]).push(arguments)};h=u.getElementsByTagName('head')[0];x=u.createElement('script');x.async=1;x.src=s;h.appendChild(x);})(window,document,'https://pushpad.xyz/pushpad.js');
 
-    pushpad('init', 9010);
+    pushpad('init', '9010');
     pushpad('widget');
+    /* navigator.serviceWorker.register('/sw.js', { scope: '/', updateViaCache: 'none' });
+    pushpad('init', '123', { serviceWorkerPath: null }); */
   </script>
 
   <meta charset="UTF-8">
