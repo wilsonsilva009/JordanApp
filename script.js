@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let decks = JSON.parse(localStorage.getItem("decks")) || {};
+  let points = JSON.parse(localStorage.getItem("points")) || {wins: 0, losses: 0};
   let selectedDeck = null;
   let currentWord = null;
 
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("checkAnswerBtn").addEventListener("click", () => {
     const answer = studyAnswerInput.value.trim();
     if (answer === decks[selectedDeck][currentWord]) {
+      addPoint("win");
       studyResult.textContent = "Correct!";
       studyResult.classList.remove("incorrect");
       // Return to deck selection after correct answer
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }, 1000); // 1 second delay so user sees "Correct!"
     } else {
+      addPoint("loss");
       studyResult.textContent = "Incorrect!";
       studyResult.classList.add("incorrect");
     }
@@ -58,6 +61,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function saveDecks() {
     localStorage.setItem("decks", JSON.stringify(decks));
+  }
+
+  function savePoints() {
+    localStorage.setItem("points", JSON.stringify(points));
+  }
+
+  function addPoint(type) {
+    switch (type) {
+      case "win":
+        points.wins++;
+        break;
+      
+      case "loss":
+        points.losses++;
+        break;
+    
+      default:
+        break;
+    }
+    savePoints();
+    renderPoints();
+  }
+
+  function renderPoints() {
+    const total = points.wins + points.losses;
+    const winPercent = (points.wins / total) * 100;
+    const blend = 5;
+
+    document.querySelector(".progress-filling").style.background = `
+    linear-gradient(to right,
+    #71ff71 ${winPercent - blend}%,
+    #71ff71 ${winPercent}%,
+    #ff7171 ${winPercent}%,
+    #ff7171 100%)
+    `;
   }
 
   function renderDecks() {
@@ -210,4 +248,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   renderDecks();
+  renderPoints();
 });
