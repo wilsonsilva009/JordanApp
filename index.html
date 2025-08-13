@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
-    (function(p,u,s,h,x){p.pushpad=p.pushpad||function(){(p.pushpad.q=p.pushpad.q||[]).push(arguments)};h=u.getElementsByTagName('head')[0];x=u.createElement('script');x.async=1;x.src=s;h.appendChild(x);})(window,document,'https://pushpad.xyz/pushpad.js');
-
-    pushpad('init', '9010');
-    navigator.serviceWorker.register('/sw.js', { scope: '/', updateViaCache: 'none' });
-    pushpad('init', '9010', { serviceWorkerPath: null });
-    pushpad('widget');
-    pushpad('subscribe');
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "5ce34a2e-0c27-4883-8252-dae87df3b3e8",
+      });
+    });
   </script>
 
   <meta charset="UTF-8">
