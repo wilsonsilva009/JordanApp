@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let decks = JSON.parse(localStorage.getItem("decks")) || {};
-  let points = JSON.parse(localStorage.getItem("points")) || {wins: 0, losses: 0};
+  let points = JSON.parse(localStorage.getItem("points")) || { wins: 0, losses: 0 };
   let selectedDeck = null;
   let currentWord = null;
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         studyAnswerInput.value = "";
         fadeOut(document.getElementById("study-section"), () => {
           renderDecks();
-          fadeIn(document.getElementById("deck-section"));
+          fadeIn(document.getElementById("word-section"));
         });
       }, 1000); // 1 second delay so user sees "Correct!"
     } else {
