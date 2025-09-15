@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
         studyAnswerInput.value = "";
         fadeOut(document.getElementById("study-section"), () => {
           renderDecks();
-          fadeIn(document.getElementById("word-section"));
+          fadeIn(document.getElementById("deck-section"));
         });
-      }, 1000); // 1 second delay so user sees "Correct!"
+      }, 1000);
     } else {
       addPoint("loss");
       studyResult.textContent = "Incorrect!";
@@ -229,15 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("studyWord").textContent = currentWord;
     document.getElementById("word-section").style.display = "none";
     document.getElementById("study-section").style.display = "block";
-  });
-
-  document.getElementById("checkAnswerBtn").addEventListener("click", () => {
-    const answer = document.getElementById("studyAnswer").value.trim();
-    if (answer === decks[selectedDeck][currentWord]) {
-      document.getElementById("studyResult").textContent = "Correct!";
-    } else {
-      document.getElementById("studyResult").textContent = "Try again.";
-    }
   });
 
   document.getElementById("exitStudyBtn").addEventListener("click", () => {
